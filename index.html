@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prismatic Silk Harmonies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    @keyframes jump {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    /* 强化的图案律动与轻微晃动动画 */
+    @keyframes fabric-beat {
+      0% { transform: scale(1) rotate(0deg) translate(0, 0); filter: brightness(1) saturate(1.2) contrast(1.1); }
+      15% { transform: scale(1.12) rotate(1.5deg) translate(5px, -5px); filter: brightness(1.8) saturate(2.5) contrast(1.4); }
+      30% { transform: scale(1.08) rotate(-1deg) translate(-3px, 3px); filter: brightness(1.6) saturate(2) contrast(1.3); }
+      100% { transform: scale(1) rotate(0deg) translate(0, 0); filter: brightness(1) saturate(1.2) contrast(1.1); }
+    }
+    
+    .animate-jump {
+      animation: jump 0.4s ease-in-out;
+    }
+    .animate-fabric-beat {
+      animation: fabric-beat 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    
+    body {
+      background-color: #05060a;
+      min-height: 100vh;
+      color: #f8fafc;
+      font-family: 'Inter', -apple-system, sans-serif;
+      overflow-x: hidden;
+      margin: 0;
+      position: relative;
+    }
+
+    .bg-blob {
+      position: fixed;
+      width: 75vw;
+      height: 75vw;
+      border-radius: 50%;
+      filter: blur(150px);
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-cyan { background: #0891b2; top: -15%; left: -10%; }
+    .blob-purple { background: #7c3aed; bottom: -15%; right: -10%; }
+    .blob-magenta { background: #db2777; top: 30%; left: 20%; width: 50vw; height: 50vw; opacity: 0.05; }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+      opacity: 0.03;
+      filter: contrast(150%) brightness(80%);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(50px);
+      -webkit-backdrop-filter: blur(50px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    .silk-container {
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <div class="bg-blob blob-cyan"></div>
+  <div class="bg-blob blob-purple"></div>
+  <div class="bg-blob blob-magenta"></div>
+  <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

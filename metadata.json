@@ -1,0 +1,5 @@
+{
+  "name": "Musical Silhouettes",
+  "description": "Generate a silhouette based on text and fill it with a randomly generated melody of jumping musical notes.",
+  "requestFramePermissions": []
+}
